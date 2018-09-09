@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TEst.Models;
+using Repository.Models;
 
-namespace TEst.Migrations
+namespace Repository.Migrations
 {
     [DbContext(typeof(EnvironmentContext))]
     partial class EnvironmentContextModelSnapshot : ModelSnapshot
@@ -19,7 +19,7 @@ namespace TEst.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TEst.Models.Environment", b =>
+            modelBuilder.Entity("Repository.Models.Environment", b =>
                 {
                     b.Property<int>("EnvironmentId")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace TEst.Migrations
                     b.ToTable("Environments");
                 });
 
-            modelBuilder.Entity("TEst.Models.EnvironmentUser", b =>
+            modelBuilder.Entity("Repository.Models.EnvironmentUser", b =>
                 {
                     b.Property<int>("EnvironmentUserId")
                         .ValueGeneratedOnAdd()
@@ -55,7 +55,7 @@ namespace TEst.Migrations
                     b.ToTable("EnvironmentUsers");
                 });
 
-            modelBuilder.Entity("TEst.Models.EnvironmentUsingStatus", b =>
+            modelBuilder.Entity("Repository.Models.EnvironmentUsingStatus", b =>
                 {
                     b.Property<int>("EnvironmentUsingStatusId")
                         .ValueGeneratedOnAdd()
@@ -68,7 +68,7 @@ namespace TEst.Migrations
                     b.ToTable("EnvironmentUsEnvironmentUsingStatuses");
                 });
 
-            modelBuilder.Entity("TEst.Models.User", b =>
+            modelBuilder.Entity("Repository.Models.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -83,21 +83,21 @@ namespace TEst.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("TEst.Models.Environment", b =>
+            modelBuilder.Entity("Repository.Models.Environment", b =>
                 {
-                    b.HasOne("TEst.Models.User", "user")
+                    b.HasOne("Repository.Models.User", "user")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("TEst.Models.EnvironmentUser", b =>
+            modelBuilder.Entity("Repository.Models.EnvironmentUser", b =>
                 {
-                    b.HasOne("TEst.Models.Environment", "Environment")
+                    b.HasOne("Repository.Models.Environment", "Environment")
                         .WithMany()
                         .HasForeignKey("EnvironmentId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("TEst.Models.User", "User")
+                    b.HasOne("Repository.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

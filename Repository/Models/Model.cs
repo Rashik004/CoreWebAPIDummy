@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace TEst.Models
+namespace Repository.Models
 {
     public class EnvironmentContext : DbContext
     {
