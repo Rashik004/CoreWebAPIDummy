@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Repository.Models;
+using BusinessServices.Contracts;
+using BusinessServices;
 
 namespace TEst
 {
@@ -28,6 +30,7 @@ namespace TEst
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<EnvironmentContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EnvironmentManagerDatabase")));
+            services.AddScoped<IEnvironmentService, EnvironmentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
