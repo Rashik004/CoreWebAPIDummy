@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BusinessServices;
 using BusinessServices.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using TEst.QueryObject;
 
 namespace TEst.Controllers
@@ -14,15 +15,18 @@ namespace TEst.Controllers
     public class ValuesController : ControllerBase
     {
         private readonly IEnvironmentService environmentService;
-
-        public ValuesController(IEnvironmentService environmentService)
+        private readonly ILogger _logger;
+        public ValuesController(IEnvironmentService environmentService,
+            ILogger<ValuesController> logger)
         {
             this.environmentService = environmentService;
+            _logger = logger;
         }
         // GET api/values
         [HttpGet]
         public IList<Repository.Models.Environment> Get()
         {
+            _logger.Log(LogLevel.Warning, "HIIIIIIIIII");
             return this.environmentService.GetAllEnvironments();
         }
 
