@@ -16,7 +16,7 @@ namespace BusinessServices
         }
         public IList<Repository.Models.Environment> GetAllEnvironments()
         {
-            var test = _context.Environments.Include(b => b.user).ToList();
+            var test = _context.Environments.Include(b => b.user).AsNoTracking().ToList();
             return test;
         }
 

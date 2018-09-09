@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
+using Repository.Configurations;
 using System;
 using System.Collections.Generic;
 
@@ -11,6 +12,11 @@ namespace Repository.Models
         public EnvironmentContext(DbContextOptions<EnvironmentContext> options)
             : base(options)
         { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new EnvironmentConfiguration());
+        }
 
         public DbSet<Environment> Environments { get; set; }
         public DbSet<User> Users { get; set; }
