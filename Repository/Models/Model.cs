@@ -1,13 +1,26 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Collections.Generic;
 
 namespace Repository.Models
 {
     public class EnvironmentContext : DbContext
     {
+        public EnvironmentContext()
+        {
+
+        }
+
         public EnvironmentContext(DbContextOptions<EnvironmentContext> options)
             : base(options)
         { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder
+                .UseSqlServer(@"Server=DESKTOP-T3B7OLP;Database=EnvironmentContext;Trusted_Connection=True;ConnectRetryCount=0")
+                .ConfigureWarnings(warnings => warnings.Throw(CoreEventId.IncludeIgnoredWarning));
+        }
 
         public DbSet<Environment> Environments { get; set; }
         public DbSet<User> Users { get; set; }
@@ -31,6 +44,8 @@ namespace Repository.Models
         public string Name { get; set; }
 
         public string Mail { get; set; }
+
+        public string Password { get; set; }
     }
 
     public class EnvironmentUsingStatus

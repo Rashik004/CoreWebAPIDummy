@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BusinessServices;
 using Microsoft.AspNetCore.Mvc;
+using TEst.QueryObject;
 
 namespace TEst.Controllers
 {
@@ -12,9 +14,10 @@ namespace TEst.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IList<Repository.Models.Environment> Get()
         {
-            return new string[] { "value1", "value2" };
+            var bl = new EnvironmentService();
+            return bl.GetAllEnvironments();
         }
 
         // GET api/values/5
@@ -26,8 +29,21 @@ namespace TEst.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(Repository.Models.Environment value)
         {
+            var bl = new EnvironmentService();
+            bl.AddEnvironment(value);
+        }
+        [Route("changeEnvName")]
+        [HttpPost]
+        public Repository.Models.Environment ChangeEnvironmentName(changeEnvNameCommand command)
+        {
+            if(string.IsNullOrWhiteSpace(command.EnvironmentName))
+            {
+                throw new Exception("Name cant be null or empty");
+            }
+            var bl = new EnvironmentService();
+            return bl.ChangeEnvironmentName(command.EnvironmentId, command.EnvironmentName);
         }
 
         // PUT api/values/5
