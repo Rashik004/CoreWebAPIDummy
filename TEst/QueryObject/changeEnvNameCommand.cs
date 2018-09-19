@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TEst.QueryObject
+namespace DummyWeb.QueryObject
 {
     public class changeEnvNameCommand
     {

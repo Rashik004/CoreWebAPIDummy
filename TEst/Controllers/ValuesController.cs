@@ -6,9 +6,9 @@ using BusinessServices;
 using BusinessServices.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TEst.QueryObject;
+using DummyWeb.QueryObject;
 
-namespace TEst.Controllers
+namespace DummyWeb.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

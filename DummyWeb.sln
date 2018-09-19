@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEst", "TEst\TEst.csproj", "{AA5ECE6B-8CDE-4E35-BC2B-3C43090E8552}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DummyWeb", "TEst\DummyWeb.csproj", "{AA5ECE6B-8CDE-4E35-BC2B-3C43090E8552}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{16731A77-F2B2-4739-A058-9634510688F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{16731A77-F2B2-4739-A058-9634510688F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessServices", "BusinessServices\BusinessServices.csproj", "{56B4A280-BC38-4F74-BD27-DA8D03EEE965}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessServices", "BusinessServices\BusinessServices.csproj", "{56B4A280-BC38-4F74-BD27-DA8D03EEE965}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -14,7 +14,7 @@ using Repository.Models;
 using BusinessServices.Contracts;
 using BusinessServices;
 
-namespace TEst
+namespace DummyWeb
 {
     public class Startup
     {
